@@ -7,7 +7,7 @@ create table car_sales (
     vehicle_segment VARCHAR(20),
     sellingprice INTEGER NOT NULL,
     power_steering INTEGER NOT NULL,
-    airbags INTEGER NOT NULL,
+    airbags INTEGER NOT NULL,ear
     sunroof INTEGER NOT NULL,
     matt_finish INTEGER NOT NULL,
     music_system INTEGER NOT NULL,
