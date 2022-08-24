@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const restUrl = 'https://6000-oshosingh-boschproject-xs1hbu6nh3w.ws-us62.gitpod.io/'
+const restUrl = 'http://172.17.0.3:6000'
 
 export const getAllSales = async () => {
     try{
