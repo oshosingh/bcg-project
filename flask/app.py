@@ -11,4 +11,4 @@ app.register_blueprint(CarSalesController)
 def health():
     return 'healthy'
 
-app.run(host="0.0.0.0", port=6000)
+app.run(host="0.0.0.0", port=8080)
