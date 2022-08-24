@@ -1,0 +1,22 @@
+.form-parent {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
+}
+
+.form-field {
+    margin: 1.5rem;
+}
+
+.submit-btn {
+    margin-left: 45%;
+}
+
+.saleid-input {
+    margin-top: 1.5rem;
+    margin-left: 3.2rem;
+}
+
+.get-sales-data-btn {
+    margin-left: 1rem;
+}

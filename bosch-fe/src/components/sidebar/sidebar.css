@@ -1,0 +1,19 @@
+.parent-sidebar {
+    width: 20%;
+    background-color: yellow;
+}
+
+.text-decor {
+    font-size: 1.2rem;
+}
+
+.child-div {
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.child-div :hover {
+    cursor: pointer;
+}
