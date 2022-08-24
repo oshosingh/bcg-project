@@ -3,6 +3,10 @@ import './navbar.css'
 
 function navbar(props) {
 
+  const redirectToTableView = () => {
+      props.renderTableView('table')
+  }
+
   const handleAddSales = () => {
       props.renderTableView('add')
   }
@@ -13,7 +17,7 @@ function navbar(props) {
 
   return (
     <div className='navbar-parent'>
-      <div className='navbar-name align-items-nav'> Bosch Sales </div>
+      <div className='navbar-name align-items-nav' onClick={redirectToTableView}> Bosch Sales </div>
 
       <div className='sales-btn align-items-nav' onClick={handleAddSales}>
         Add Sales
