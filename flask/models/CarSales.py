@@ -45,7 +45,7 @@ class CarSales(Base):
     def jsonify(self):
         dict = {}
         dict['salesId'] = self.sales_id
-        dict['dateOfPurchae'] = self.date_of_purchase
+        dict['dateOfPurchase'] = self.date_of_purchase
         dict['customerId'] = self.customer_id
         dict['fuel'] = self.fuel
         dict['premium'] = self.premium 
