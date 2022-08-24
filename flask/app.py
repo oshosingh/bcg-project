@@ -1,5 +1,5 @@
 from flask import Flask, Blueprint
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from controllers.CarSalesController import CarSalesController
 
 app = Flask(__name__)

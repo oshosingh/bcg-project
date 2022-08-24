@@ -14,14 +14,18 @@ function Tableview(props) {
           setTableData(data)
         })
 
+        // setTimeout(() => {
+        //     setTableData([])
+        // }, 5000)
+
         if(tableData !== null) {
           setIsLoading(false)
         }
-    }, [isLoading])
+    }, [])
     
     return (
       <div className='parent'>
-        { isLoading === false ? 'hello world' : <Spinner animation="grow" /> }
+        { isLoading === false ? <h1>'hello world'</h1> : <Spinner animation="border" className='spinner'/> }
       </div>
     )
 }

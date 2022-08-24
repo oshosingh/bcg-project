@@ -22,6 +22,26 @@ class CarSales(Base):
     customer_region = Column(String(10))
     customer_marital_status = Column(Integer)
 
+    def __init__(self, salesId, dateOfPurchae, customerId, fuel, premium, vehicleSegment, sellingPrice, powerSteering,
+                    airbags, sunroof, mattFinish, musicSystem, customerGender, customerIncomeGroup, customerRegion, 
+                        customerMaritalStatus):
+        self.sales_id = salesId
+        self.date_of_purchase = dateOfPurchae
+        self.customer_id = customerId
+        self.fuel = fuel
+        self.premium = premium
+        self.vehicle_segment = vehicleSegment
+        self.sellingprice = sellingPrice
+        self.power_steering = powerSteering
+        self.airbags = airbags
+        self.sunroof = sunroof
+        self.matt_finish = mattFinish
+        self.music_system = musicSystem
+        self.customer_gender = customerGender
+        self.customer_income_group  =customerIncomeGroup
+        self.customer_region = customerRegion
+        self.customer_marital_status = customerMaritalStatus
+
     def jsonify(self):
         dict = {}
         dict['salesId'] = self.sales_id

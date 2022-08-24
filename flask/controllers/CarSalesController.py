@@ -9,12 +9,21 @@ def test():
     return 'cars test controller'
 
 @CarSalesController.route('/get/all/sales')
-@cross_origin(origin='*')
 def getAllSales():
     carSalesService = CarSalesService()
     return carSalesService.getAllSales()
 
 @CarSalesController.route('/get/sales/by/<salesOrCustomerId>')
-def getSalesBySaleId(salesOrCustomerId):
+def getSalesBySalesOrCustomerId(salesOrCustomerId):
     carSalesService = CarSalesService()
-    return carSalesService.getSalesById(salesOrCustomerId)
+    return carSalesService.getSalesBySalesOrCustomerId(salesOrCustomerId)
+
+@CarSalesController.route('/get/sales/by/<salesId>')
+def getSalesBySaleId(salesId):
+    carSalesService = CarSalesService()
+    return carSalesService.getSalesBySaleId(salesId)
+
+@CarSalesController.route('add/sales')
+def addSales():
+    salesData = request.json 
+    return carSalesService.saveSalesDetauils(salesData)
