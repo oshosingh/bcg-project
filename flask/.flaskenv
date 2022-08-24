@@ -1,1 +1,1 @@
-DB_CONNECTION_URL = postgresql://postgres:admin@localhost:5432/postgres
+DB_CONNECTION_URL = postgresql://postgres:admin@172.31.54.238:5432/postgres
