@@ -52,14 +52,14 @@ function Form(props) {
 
         setFormInputValue(prevState => ({
             ...prevState,
-            fieldKey: value
+            [fieldKey]: value
         }))
     }
 
     const formData = (element, index) => {
 
         const disabled = (element === 'Date of Purchase' && addOrEdit === 'edit') ? true : false
-        const inputFieldValue = formInputValue[inputFieldToJsonKey(element)] === null ? 'hello' : formInputValue[inputFieldToJsonKey(element)]
+        const inputFieldValue = formInputValue[inputFieldToJsonKey(element)] === null ? '' : formInputValue[inputFieldToJsonKey(element)]
 
         return (
                 <div className='form-field' key={index}>

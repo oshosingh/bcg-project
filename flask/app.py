@@ -1,7 +1,9 @@
 from flask import Flask, Blueprint
+from flask_cors import CORS
 from controllers.CarSalesController import CarSalesController
 
 app = Flask(__name__)
+cors = CORS(app)
 
 app.register_blueprint(CarSalesController)
 

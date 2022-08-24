@@ -1,14 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './tableview.css'
-import { useEffect } from 'react'
+import { useState } from 'react'
+import { getAllSales } from '../../RestApi'
+import Spinner from 'react-bootstrap/Spinner';
 
 function Tableview(props) {
+
+    const [tableData, setTableData] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
+ 
     useEffect(() => {
-      console.log('rerendered')
-    }, [props.action])
+        getAllSales().then((data) => {
+          setTableData(data)
+        })
+
+        if(tableData !== null) {
+          setIsLoading(false)
+        }
+    }, [isLoading])
     
     return (
-      <div className='parent'>Tableview</div>
+      <div className='parent'>
+        { isLoading === false ? 'hello world' : <Spinner animation="grow" /> }
+      </div>
     )
 }
 

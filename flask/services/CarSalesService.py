@@ -15,13 +15,19 @@ class CarSalesService:
 
         return carSalesList
     
-    def getSalesById(self, customerId):
+    def getSalesById(self, salesOrCustomerId):
         session = Dbcon().getDBSession()
-        carSalesQuery = session.query(CarSales).filter_by(customer_id = customerId)
+        carSalesQueryByCustomerId = session.query(CarSales).filter_by(customer_id = salesOrCustomerId)
+        carSalesQueryBySalesId = session.query(CarSales).filter_by(sales_id = salesOrCustomerId)
+
         carSalesListBySaleId = []
 
-        for carSales in carSalesQuery:
+        for carSales in carSalesQueryByCustomerId:
             carSalesListBySaleId.append(carSales.jsonify())
+
+        for carSales in carSalesQueryBySalesId:
+            carSalesListBySaleId.append(carSales.jsonify())
+        
 
         return carSalesListBySaleId
         
