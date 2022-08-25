@@ -30,6 +30,10 @@ function Form(props) {
     const [submitStatus, setSubmitStatus] = useState(-1)
 
     useEffect(() => {
+        setFormInputValue(formInput)
+    }, [props.action])
+
+    useEffect(() => {
         var flag = true
         for(var key in formInputValue) {
             if(formInputValue[key] === null || formInputValue[key] === '') {
@@ -44,7 +48,7 @@ function Form(props) {
             setButtonStateEnabled(false)
         }
 
-    }, [formInputValue, props.action])
+    }, [formInputValue])
 
     const formFields = [
                             'Sales Id', 'Date of Purchase', 'Customer Id', 'Fuel', 'Premium', 
