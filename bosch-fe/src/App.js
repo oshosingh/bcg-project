@@ -10,7 +10,7 @@ function App() {
   const [searchInputData, setSearchInputData] = useState(0)
 
   useEffect(() => {
-      console.log('found change in search input')
+      //console.log('found change in search input')
   }, [searchInputData, action])
 
   const renderTableView = (action) => {
@@ -19,7 +19,6 @@ function App() {
   }
 
   const renderTableWithSearchResults = (searchInput) => {
-      console.log('render table with search called with input ', searchInput)
       setSearchInputData(searchInput)
   }
 
