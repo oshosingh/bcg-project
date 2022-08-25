@@ -53,7 +53,7 @@ class CarSalesService:
         salesId = Integer(updatedSalesData['salesId'])
         print('sale id is ', salesId)
         carSalesObj = session.query(CarSales).filter_by(sales_id = salesId)
-        session.delete(salesId)
+        session.delete(carSalesObj)
 
         # insert new object
         newSalesObject = CarSales(**updatedSalesData)
