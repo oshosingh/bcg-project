@@ -2,7 +2,6 @@ from database.Dbcon import Dbcon
 from models.CarSales import CarSales
 from types import SimpleNamespace
 import json
-from sqlalchemy import Integer
 
 class CarSalesService:
     def __init__(self):
@@ -50,7 +49,7 @@ class CarSalesService:
     
     def updateSalesData(self, updatedSalesData):
         session = Dbcon().getDBSession()
-        salesId = Integer(updatedSalesData['salesId'])
+        salesId = updatedSalesData['salesId']
         print('sale id is ', salesId)
         carSalesObj = session.query(CarSales).filter_by(sales_id = salesId)
         session.delete(carSalesObj)
