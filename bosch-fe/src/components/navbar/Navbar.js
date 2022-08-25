@@ -1,7 +1,10 @@
 import React from 'react'
 import './navbar.css'
+import { useState } from 'react'
 
-function navbar(props) {
+function Navbar(props) {
+
+  const [searchInput, setSearchInput] = useState(0)
 
   const redirectToTableView = () => {
       props.renderTableView('table')
@@ -14,6 +17,14 @@ function navbar(props) {
   const handleEditSales = () => {
       props.renderTableView('edit')
   } 
+
+  const handleSearchInput = (event) => {
+      setSearchInput(event.target.value)
+  }
+
+  const fetchSearchResult = () => {
+      props.renderTableWithSearchResults(searchInput)
+  }
 
   return (
     <div className='navbar-parent'>
@@ -28,10 +39,10 @@ function navbar(props) {
       </div>
 
       <div className='textbox align-items-nav'>
-        <input placeholder='enter sales id or customer id' />
+        <input placeholder='enter sales id or customer id' onChange={handleSearchInput}/>
 
         <div className='search-btn align-items-nav'>
-          <button>search</button>
+          <button onClick={fetchSearchResult}>search</button>
         </div>
         
       </div>
@@ -39,4 +50,4 @@ function navbar(props) {
   )
 }
 
-export default navbar
+export default Navbar

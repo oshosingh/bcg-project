@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const restUrl = 'http://52.205.147.56:8080'
+const restUrl = 'http://52.207.154.109:8080'
 
 export const getAllSales = async () => {
     try{
@@ -16,7 +16,7 @@ export const getAllSales = async () => {
 export const searchBySalesOrCustomerId = async (salesOrCustomerId) => {
     try{
         const res = await axios.get(`${restUrl}/get/sales/by/salesOrCustomerId`)
-        return res
+        return res.data
     }
     catch(error) {
         return []
@@ -46,7 +46,7 @@ export const addSalesRecord = async (salesData) => {
 export const updateSalesRecord = async (salesData) => {
     try{
         const res = await axios.put(`${restUrl}/update/sales`)
-        return 1
+        return res.data
     }
     catch(error) {
         return -1

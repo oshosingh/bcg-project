@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './tableview.css'
 import { useState } from 'react'
-import { getAllSales } from '../../RestApi'
+import { getAllSales, searchBySalesOrCustomerId } from '../../RestApi'
 import Spinner from 'react-bootstrap/Spinner';
 import Table from 'react-bootstrap/Table';
 import data from '../../data.json'
@@ -14,9 +14,17 @@ function Tableview(props) {
                           'Customer Gender', 'Customer Income Group', 'Customer Region' ]
  
     useEffect(() => {
-        getAllSales().then((data) => {
-          setTableData(data)
-        })
+        if(props.searchInput === 0) {
+            getAllSales().then((data) => {
+              setTableData(data)
+            })
+        }
+        else {
+            searchBySalesOrCustomerId(props.searchInput).then((data) => {
+                setTableData(data)
+            })
+        }
+        
     }, [])
 
 

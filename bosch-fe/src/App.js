@@ -7,18 +7,22 @@ import AddSalesForm from './components/form/AddSalesForm';
 function App() {
 
   const [action, setAction] = useState('table')
+  const [searchInputData, setSearchInputData] = useState(0)
 
   const renderTableView = (action) => {
-      console.log('action done ', action)
       setAction(action)
+  }
+
+  const renderTableWithSearchResults = (searchInput) => {
+      setSearchInputData(searchInput)
   }
 
   return (
     <div className="App">
-      <Navbar renderTableView = {renderTableView } />
+      <Navbar renderTableView = {renderTableView } renderTableWithSearchResults = {renderTableWithSearchResults} />
 
       <div className='main'> 
-        {action === 'table' ? <Tableview /> : <AddSalesForm action={action} />}
+        {action === 'table' ? <Tableview searchInput = {searchInputData} /> : <AddSalesForm action={action} />}
       </div>
     </div>
   );
