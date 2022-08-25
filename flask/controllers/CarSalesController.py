@@ -27,4 +27,4 @@ def getSalesBySaleId(salesId):
 def addSales():
     salesData = request.json 
     carSalesService = CarSalesService()
-    return carSalesService.saveSalesDetauils(salesData)
+    return carSalesService.saveSalesData(salesData)
