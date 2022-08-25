@@ -44,7 +44,7 @@ function Form(props) {
             setButtonStateEnabled(false)
         }
 
-    }, [formInputValue])
+    }, [formInputValue, props.action])
 
     const formFields = [
                             'Sales Id', 'Date of Purchase', 'Customer Id', 'Fuel', 'Premium', 
