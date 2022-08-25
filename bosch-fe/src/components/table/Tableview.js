@@ -44,7 +44,7 @@ function Tableview(props) {
               </thead>
 
               <tbody>
-                {tableData.data.map((element, index) => {
+                {tableData.map((element, index) => {
                   return (
                     <tr key={index}>
                         {tableColumns.map((column, idx) => {

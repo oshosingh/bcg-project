@@ -5,7 +5,7 @@ const restUrl = 'http://52.207.154.109:8080'
 export const getAllSales = async () => {
     try{
         const res = await axios.get(`${restUrl}/get/all/sales`)
-        return res
+        return res.data
     }
     catch(error) {
         return []
