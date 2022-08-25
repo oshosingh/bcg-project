@@ -40,7 +40,7 @@ class CarSalesService:
         for carSales in carSalesQueryBySalesId:
             return carSales.jsonify()
     
-    def saveSalesData(salesData):
+    def saveSalesData(self, salesData):
         session = Dbcon().getDBSession()
         carSalesObject = CarSales(**salesData)
         session.add(carSalesObject)
