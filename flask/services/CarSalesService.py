@@ -49,7 +49,8 @@ class CarSalesService:
     
     def updateSalesData(self, updatedSalesData):
         session = Dbcon().getDBSession()
-        salesId = int(updatedSalesData['salesId'])
+        salesId = updatedSalesData['salesId']
+        print('sale id is ', salesId)
         carSalesObj = session.query(CarSales).filter_by(sales_id = salesId)
         session.delete(salesId)
 
