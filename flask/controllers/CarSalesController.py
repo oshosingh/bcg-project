@@ -13,7 +13,7 @@ def getAllSales():
     carSalesService = CarSalesService()
     return carSalesService.getAllSales()
 
-@CarSalesController.route('/get/sales/by/<salesOrCustomerId>')
+@CarSalesController.route('/search/sales/by/<salesOrCustomerId>')
 def getSalesBySalesOrCustomerId(salesOrCustomerId):
     carSalesService = CarSalesService()
     return carSalesService.getSalesBySalesOrCustomerId(salesOrCustomerId)
