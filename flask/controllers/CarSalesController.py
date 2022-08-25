@@ -1,7 +1,6 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from services.CarSalesService import CarSalesService
 from flask_cors import cross_origin
-import request
 
 CarSalesController = Blueprint('CarSalesController', __name__)
 
