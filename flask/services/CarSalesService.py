@@ -50,7 +50,7 @@ class CarSalesService:
     def updateSalesData(self, updatedSalesData):
         session = Dbcon().getDBSession()
         salesId = updatedSalesData['salesId']
-        carSalesObj = session.query(carSales).filter_by(sales_id = salesId)
+        carSalesObj = session.query(CarSales).filter_by(sales_id = salesId)
         session.delete(salesId)
 
         # insert new object
