@@ -38,10 +38,10 @@ function Tableview(props) {
               <tbody>
                 {tableData.data.map((element, index) => {
                   return (
-                    <tr>
+                    <tr key={index}>
                         {tableColumns.map((column, idx) => {
                                 return (
-                                  <td>{element[inputFieldToJsonKey(column)]}</td>
+                                  <td key={idx}>{element[inputFieldToJsonKey(column)]}</td>
                                 )  
                         })}
                     </tr>
