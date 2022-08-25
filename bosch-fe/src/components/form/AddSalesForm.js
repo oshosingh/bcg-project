@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './form.css'
 import inputFieldToJsonKey from '../../utils'
 import {getSalesDataBySaleId, addSalesRecord, updateSalesRecord} from '../../RestApi' 
+import Spinner from 'react-bootstrap/Spinner';
 
 function Form(props) {
 
@@ -26,7 +27,7 @@ function Form(props) {
 
     const [formInputValue, setFormInputValue] = useState(formInput)
     const [buttonStateEnabled, setButtonStateEnabled] = useState(false)
-    const [submitStatus, setSubmitStatus] = useState(false)
+    const [submitStatus, setSubmitStatus] = useState(-1)
 
     useEffect(() => {
         var flag = true
@@ -76,6 +77,7 @@ function Form(props) {
     }
 
     const handleInput = (event) => {
+        setSubmitStatus(-1)
         setSaleId(event.target.value)
     }
 
@@ -88,18 +90,32 @@ function Form(props) {
     }
 
     const submitSales = () => {
+        setButtonStateEnabled(false)
+        setSubmitStatus(0)
+
         addSalesRecord(formInputValue).then(data => {
-            if(data === 1) {
-                setSubmitStatus(true)
+            if(data !== -1) {
+                setSubmitStatus(1)
             }
+            else {
+                setSubmitStatus(-1)
+            }
+            setButtonStateEnabled(true)
         })
     }
     
     const editSales = () => {
+        setButtonStateEnabled(false)
+        setSubmitStatus(0)
+
         updateSalesRecord().then(data => {
-            if(data === 1) {
-                setSubmitStatus(true)
+            if(data !== -1) {
+                setSubmitStatus(1)
             }
+            else {
+                setSubmitStatus(-1)
+            }
+            setButtonStateEnabled(true)
         })
     }
 
@@ -141,9 +157,12 @@ function Form(props) {
                     return formData(element, index)
                 })}
             </div>
-            <div className='submit-btn'>
+            <div className='submit-btn-center'>
                 { addOrEdit === 'add' ?  getButtonComponent('Submit Sales') :
                                          getButtonComponent('Edit Sales') }
+            </div>
+            <div className='submit-btn-center'>
+                {submitStatus === 1 ? 'record sbumitted' : submitStatus === -1 ? <></> : <Spinner animation="border" className='spinner'/>  }
             </div>
         </div>
     )

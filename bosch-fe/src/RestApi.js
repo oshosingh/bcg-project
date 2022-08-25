@@ -45,7 +45,7 @@ export const addSalesRecord = async (salesData) => {
 
 export const updateSalesRecord = async (salesData) => {
     try{
-        const res = await axios.put(`${restUrl}/update/sales`)
+        const res = await axios.put(`${restUrl}/update/sales`, salesData)
         return res.data
     }
     catch(error) {
