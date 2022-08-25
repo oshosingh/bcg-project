@@ -30,7 +30,6 @@ function Form(props) {
     const [submitStatus, setSubmitStatus] = useState(-1)
 
     useEffect(() => {
-        setFormInputValue(formInput)
         var flag = true
         for(var key in formInputValue) {
             if(formInputValue[key] === null || formInputValue[key] === '') {
