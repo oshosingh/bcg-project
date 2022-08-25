@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
       console.log('found change in search input')
-  }, [searchInputData])
+  }, [searchInputData, action])
 
   const renderTableView = (action) => {
       setAction(action)
