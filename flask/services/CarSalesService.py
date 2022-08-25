@@ -33,7 +33,7 @@ class CarSalesService:
 
         return carSalesListBySaleId
     
-    def getSalesBySalesOrCustomerId(self, salesId):
+    def getSalesBySaleId(self, salesId):
         session = Dbcon().getDBSession()
         carSalesQueryBySalesId = session.query(CarSales).filter_by(sales_id = salesId)
 
