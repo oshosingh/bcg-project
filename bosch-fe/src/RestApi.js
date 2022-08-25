@@ -26,7 +26,7 @@ export const searchBySalesOrCustomerId = async (salesOrCustomerId) => {
 export const getSalesDataBySaleId = async (saleId) => {
     try{
         const res = await axios.get(`${restUrl}/get/sales/by/${saleId}`)
-        return res
+        return res.data
     }
     catch(error) {
         return -1
