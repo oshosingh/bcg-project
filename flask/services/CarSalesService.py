@@ -46,6 +46,22 @@ class CarSalesService:
         session.add(carSalesObject)
         session.commit()
         return 'saved data', 200
+    
+    def updateSalesData(self, updatedSalesData):
+        session = Dbcon().getDBSession()
+        salesId = updatedSalesData['salesId']
+        carSalesObj = session.query(carSales).filter_by(sales_id = salesId)
+        session.delete(salesId)
+
+        # insert new object
+        newSalesObject = CarSales(**updatedSalesData)
+        session.add(newSalesObject)
+
+        session.commit()
+
+        
+
+
         
 
     

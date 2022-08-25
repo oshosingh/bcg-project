@@ -28,3 +28,9 @@ def addSales():
     salesData = request.json 
     carSalesService = CarSalesService()
     return carSalesService.saveSalesData(salesData)
+
+@CarSalesController.route('/update/sales', methods=['PUT'])
+def updateSales():
+    carSalesService = CarSalesService()
+    updatedSalesData = request.json 
+    return carSalesService.updateSalesData(updatedSalesData)
