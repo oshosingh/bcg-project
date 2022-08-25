@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { getAllSales, searchBySalesOrCustomerId } from '../../RestApi'
 import Spinner from 'react-bootstrap/Spinner';
 import Table from 'react-bootstrap/Table';
-import data from '../../data.json'
 import inputFieldToJsonKey from '../../utils';
 
 function Tableview(props) {
