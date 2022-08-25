@@ -14,7 +14,7 @@ function Tableview(props) {
                           'Customer Gender', 'Customer Income Group', 'Customer Region' ]
  
     useEffect(() => {
-        console.log('inside table view ' , props.searchInput)
+        setTableData(null)
         if(props.searchInput === 0) {
             getAllSales().then((data) => {
               setTableData(data)
