@@ -9,15 +9,15 @@ import inputFieldToJsonKey from '../../utils';
 
 function Tableview(props) {
 
-    const [tableData, setTableData] = useState(data)
+    const [tableData, setTableData] = useState(null)
     const tableColumns = ['Sales Id', 'Date of Purchase', 'Customer Id', 'Vehcile Segement', 'Selling Price',
                           'Customer Gender', 'Customer Income Group', 'Customer Region' ]
  
-    // useEffect(() => {
-    //     getAllSales().then((data) => {
-    //       setTableData(data)
-    //     })
-    // }, [])
+    useEffect(() => {
+        getAllSales().then((data) => {
+          setTableData(data)
+        })
+    }, [])
 
 
     const getTableComponent = () => {
@@ -34,17 +34,16 @@ function Tableview(props) {
                     })}
                 </tr>
               </thead>
+
               <tbody>
                 {tableData.map((element, index) => {
                   return (
                     <tr>
-                        return (
-                            {tableColumns.map((column, idx) => {
+                        {tableColumns.map((column, idx) => {
                                 return (
                                   <td>{element[inputFieldToJsonKey(column)]}</td>
                                 )  
-                            })}
-                        )
+                        })}
                     </tr>
                   )
                 })}

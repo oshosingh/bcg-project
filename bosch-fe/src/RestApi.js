@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const restUrl = 'http://34.201.161.46:8080'
+const restUrl = 'http://52.205.147.56:8080'
 
 export const getAllSales = async () => {
     try{
@@ -20,5 +20,35 @@ export const searchBySalesOrCustomerId = async (salesOrCustomerId) => {
     }
     catch(error) {
         return []
+    }
+}
+
+export const getSalesDataBySaleId = async (saleId) => {
+    try{
+        const res = await axios.get(`${restUrl}/get/sales/by/${saleId}`)
+        return res
+    }
+    catch(error) {
+        return -1
+    }
+}
+
+export const addSalesRecord = async (salesData) => {
+    try{
+        const res = await axios.post(`${restUrl}/add/sales`)
+        return 1
+    }
+    catch(error) {
+        return -1
+    }
+}
+
+export const updateSalesRecord = async (salesData) => {
+    try{
+        const res = await axios.put(`${restUrl}/update/sales`)
+        return 1
+    }
+    catch(error) {
+        return -1
     }
 }

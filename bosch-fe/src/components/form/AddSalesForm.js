@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import './form.css'
 import inputFieldToJsonKey from '../../utils'
+import {getSalesDataBySaleId, addSalesRecord, updateSalesRecord} from '../../RestApi' 
 
 function Form(props) {
 
     let formInput = {
         'salesId': null,
-        'dateOfPurchase': null,
+        'dateOfPurchase': new Date(),
         'customerId': null,
         'fuel': null,
         'premium': null,
-        'vehicleSegment': 'abcd',
+        'vehicleSegment': null,
         'sellingPrice': null,
         'powerSteering': null,
         'airbags': null,
@@ -24,10 +25,25 @@ function Form(props) {
     }
 
     const [formInputValue, setFormInputValue] = useState(formInput)
+    const [buttonStateEnabled, setButtonStateEnabled] = useState(false)
+    const [submitStatus, setSubmitStatus] = useState(false)
 
     useEffect(() => {
-        console.log('rendering form')
-    }, [])
+        var flag = true
+        for(var key in formInputValue) {
+            if(formInputValue[key] === null || formInputValue[key] === '') {
+                flag = false
+            }
+        }
+
+        if(flag) {
+            setButtonStateEnabled(true)
+        }
+        else {
+            setButtonStateEnabled(false)
+        }
+
+    }, [formInputValue])
 
     const formFields = [
                             'Sales Id', 'Date of Purchase', 'Customer Id', 'Fuel', 'Premium', 
@@ -40,20 +56,51 @@ function Form(props) {
                      
     const addOrEdit = props.action === 'add' ? 'add' : 'edit'
 
-    const handleInput = (event) => {
-        setSaleId(event.target.value)
-        // console.log(event.target.value)
-    }
-
     const handleChange = (element, event) => {
         const value = event.target.value
         const fieldKey = inputFieldToJsonKey(element)
-        console.log(fieldKey)
 
         setFormInputValue(prevState => ({
             ...prevState,
             [fieldKey]: value
         }))
+    }
+
+    const salesIdInput = () => {
+        return (
+            <div className='saleid-input'>
+                <input type='text' onChange={handleInput} />
+                <button className='get-sales-data-btn' onClick={fetchSalesData}> Get Data </button>
+            </div>
+        )
+    }
+
+    const handleInput = (event) => {
+        setSaleId(event.target.value)
+    }
+
+    const fetchSalesData = () => {
+        getSalesDataBySaleId(saleId).then(data => {
+            if(data !== -1) {
+                setFormInputValue(data)
+            }
+        })
+    }
+
+    const submitSales = () => {
+        addSalesRecord().then(data => {
+            if(data === 1) {
+                setSubmitStatus(true)
+            }
+        })
+    }
+    
+    const editSales = () => {
+        updateSalesRecord().then(data => {
+            if(data === 1) {
+                setSubmitStatus(true)
+            }
+        })
     }
 
     const formData = (element, index) => {
@@ -72,13 +119,18 @@ function Form(props) {
         )
     }
 
-    const salesIdInput = () => {
-        return (
-            <div className='saleid-input'>
-                <input type='text' onChange={handleInput} />
-                <button className='get-sales-data-btn'> Get Data </button>
-            </div>
-        )
+    const getButtonComponent = (buttonType) => {
+        if(buttonStateEnabled) {
+            return (
+                <button onClick={buttonType === 'Submit Sales' ? submitSales : editSales}> {buttonType}</button>
+            )
+            
+        }
+        else { 
+            return (
+                <button onClick={buttonType === 'Submit Sales' ? submitSales : editSales} disabled> {buttonType}</button>
+            )          
+        }
     }
 
     return (
@@ -90,7 +142,8 @@ function Form(props) {
                 })}
             </div>
             <div className='submit-btn'>
-                { addOrEdit === 'add' ? <button>Submit Sales</button> : <button>Edit Sales</button> }
+                { addOrEdit === 'add' ?  getButtonComponent('Submit Sales') :
+                                         getButtonComponent('Edit Sales') }
             </div>
         </div>
     )
