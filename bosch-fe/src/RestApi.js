@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const restUrl = 'http://52.207.154.109:8080'
+const restUrl = 'http://35.170.167.118:8080'
 
 export const getAllSales = async () => {
     try{
