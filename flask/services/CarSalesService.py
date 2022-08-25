@@ -45,6 +45,7 @@ class CarSalesService:
         carSalesObject = CarSales(**salesData)
         session.add(carSalesObject)
         session.commit()
+        return carSalesObject, 200
         
 
     
