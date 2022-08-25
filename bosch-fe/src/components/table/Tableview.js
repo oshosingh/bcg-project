@@ -29,7 +29,6 @@ function Tableview(props) {
 
 
     const getTableComponent = () => {
-      console.log('table data log ', tableData)
       return (
         <div className='table-view'>
           <Table striped bordered hover variant="dark">
