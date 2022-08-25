@@ -59,7 +59,7 @@ class CarSales(Base):
         dict['customerGender'] = self.customer_gender
         dict['customerIncomeGroup'] = self.customer_income_group
         dict['customerRegion'] = self.customer_region
-        dict['customer_martial_status'] = self.customer_marital_status
+        dict['customerMaritalStatus'] = self.customer_marital_status
 
         return dict
 
