@@ -14,8 +14,8 @@ function App() {
   }, [searchInputData, action])
 
   const renderTableView = (action) => {
-      setAction(action)
       setSearchInputData(0)
+      setAction(action)
   }
 
   const renderTableWithSearchResults = (searchInput) => {
