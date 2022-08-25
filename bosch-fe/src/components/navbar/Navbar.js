@@ -24,6 +24,7 @@ function Navbar(props) {
 
   const fetchSearchResult = () => {
       props.renderTableWithSearchResults(searchInput)
+      setSearchInput(0)
   }
 
   return (
