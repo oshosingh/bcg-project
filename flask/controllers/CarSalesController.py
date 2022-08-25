@@ -23,7 +23,7 @@ def getSalesBySaleId(salesId):
     carSalesService = CarSalesService()
     return carSalesService.getSalesBySaleId(salesId)
 
-@CarSalesController.route('/add/sales')
+@CarSalesController.route('/add/sales', methods=['POST'])
 def addSales():
     salesData = request.json 
     return carSalesService.saveSalesDetauils(salesData)
