@@ -23,6 +23,7 @@ function Navbar(props) {
   }
 
   const fetchSearchResult = () => {
+      console.log('fetch search result called')
       props.renderTableWithSearchResults(searchInput)
   }
 

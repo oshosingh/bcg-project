@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './components/navbar/Navbar'
 import Tableview from './components/table/Tableview';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AddSalesForm from './components/form/AddSalesForm';
 
 function App() {
@@ -9,11 +9,16 @@ function App() {
   const [action, setAction] = useState('table')
   const [searchInputData, setSearchInputData] = useState(0)
 
+  useEffect(() => {
+      console.log('found change in search input')
+  }, [searchInputData])
+
   const renderTableView = (action) => {
       setAction(action)
   }
 
   const renderTableWithSearchResults = (searchInput) => {
+      console.log('render table with search called with input ', searchInput)
       setSearchInputData(searchInput)
   }
 
