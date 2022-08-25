@@ -5,7 +5,7 @@ const inputFieldToJsonKey = (fieldName) => {
         'Customer Id': 'customerId',
         'Fuel': 'fuel',
         'Premium': 'premium',
-        'Vehcile Segement': 'vehicleSegment',
+        'Vehcile Segment': 'vehicleSegment',
         'Selling Price': 'sellingPrice',
         'Power Steering': 'powerSteering',
         'Airbags': 'airbags',

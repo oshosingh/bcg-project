@@ -9,7 +9,7 @@ import inputFieldToJsonKey from '../../utils';
 function Tableview(props) {
 
     const [tableData, setTableData] = useState(null)
-    const tableColumns = ['Sales Id', 'Date of Purchase', 'Customer Id', 'Vehcile Segement', 'Selling Price',
+    const tableColumns = ['Sales Id', 'Date of Purchase', 'Customer Id', 'Vehcile Segment', 'Selling Price',
                           'Customer Gender', 'Customer Income Group', 'Customer Region' ]
  
     useEffect(() => {
