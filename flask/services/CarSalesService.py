@@ -51,8 +51,10 @@ class CarSalesService:
         session = Dbcon().getDBSession()
         salesId = updatedSalesData['salesId']
         print('sale id is ', salesId)
-        carSalesObj = session.query(CarSales).filter_by(sales_id = salesId)
-        session.delete(carSalesObj)
+        queryResult = session.query(CarSales).filter_by(sales_id = salesId).first()
+        oldSalesObject = queryResult.jsonify
+
+        session.delete(oldSalesObject)
 
         # insert new object
         newSalesObject = CarSales(**updatedSalesData)
