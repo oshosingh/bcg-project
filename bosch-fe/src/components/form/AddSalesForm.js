@@ -88,7 +88,7 @@ function Form(props) {
     }
 
     const submitSales = () => {
-        addSalesRecord().then(data => {
+        addSalesRecord(formInputValue).then(data => {
             if(data === 1) {
                 setSubmitStatus(true)
             }

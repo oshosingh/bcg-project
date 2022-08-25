@@ -35,8 +35,8 @@ export const getSalesDataBySaleId = async (saleId) => {
 
 export const addSalesRecord = async (salesData) => {
     try{
-        const res = await axios.post(`${restUrl}/add/sales`)
-        return 1
+        const res = await axios.post(`${restUrl}/add/sales`, salesData)
+        return res.data
     }
     catch(error) {
         return -1
