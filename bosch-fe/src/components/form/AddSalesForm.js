@@ -108,7 +108,7 @@ function Form(props) {
         setButtonStateEnabled(false)
         setSubmitStatus(0)
 
-        updateSalesRecord().then(data => {
+        updateSalesRecord(formInputValue).then(data => {
             if(data !== -1) {
                 setSubmitStatus(1)
             }

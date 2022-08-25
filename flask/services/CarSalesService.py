@@ -59,6 +59,8 @@ class CarSalesService:
 
         session.commit()
 
+        return 'updated sales data'
+
         
 
 
