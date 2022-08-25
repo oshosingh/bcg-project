@@ -40,7 +40,7 @@ function Navbar(props) {
       </div>
 
       <div className='textbox align-items-nav'>
-        <input placeholder='enter sales id or customer id' onChange={handleSearchInput}/>
+        <input placeholder='enter sales/customer id' onChange={handleSearchInput}/>
 
         <div className='search-btn align-items-nav'>
           <button onClick={fetchSearchResult}>search</button>
