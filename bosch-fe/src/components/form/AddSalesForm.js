@@ -166,7 +166,7 @@ function Form(props) {
                                          getButtonComponent('Edit Sales') }
             </div>
             <div className='submit-btn-center'>
-                {submitStatus === 1 ? 'record sbumitted' : submitStatus === -1 ? <></> : <Spinner animation="border" className='spinner'/>  }
+                {submitStatus === 1 ? 'record submitted' : submitStatus === -1 ? <></> : <Spinner animation="border" className='spinner'/>  }
             </div>
         </div>
     )
