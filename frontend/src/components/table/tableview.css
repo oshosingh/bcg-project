@@ -11,3 +11,11 @@
 .table-view {
     padding: 1rem;
 }
+
+.even-row {
+    background-color: white;
+}
+
+.odd-row {
+    background-color: yellow;
+}

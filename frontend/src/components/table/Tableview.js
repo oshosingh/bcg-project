@@ -45,7 +45,7 @@ function Tableview(props) {
               <tbody>
                 {tableData.map((element, index) => {
                   return (
-                    <tr key={index}>
+                    <tr key={index} className = {index % 2 == 0 ? 'even-row' : 'odd-row'} >
                         {tableColumns.map((column, idx) => {
                                 return (
                                   <td key={idx}>{element[inputFieldToJsonKey(column)]}</td>
